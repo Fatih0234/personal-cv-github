@@ -1,0 +1,113 @@
+---
+interface Experience {
+    role: string;
+    company: string;
+    period: string;
+    location: string;
+    highlights: string[];
+    technologies: string[];
+};
+
+const experiences: Experience[] = [
+    {
+        role: 'Research Assistant',
+        company: 'Carl von Ossietzky University of Oldenburg — VLBA',
+        period: 'Dec 2024 — Apr 2026',
+        location: 'Oldenburg, Germany',
+        highlights: [
+            'Co-authored a peer-reviewed paper for Springer on AI-supported cyclist detection using YOLO11n — gained end-to-end experience in academic research and scientific publishing',
+            'Self-initiated the curation of a custom 5,000+ image dataset on Roboflow — introducing a novel three-class cyclist split (back, front, side) to address model blind spots on side-view detections, an insight missing from existing benchmarks',
+            'Integrated a pre-trained YOLO model as an ML backend into Label Studio via HTTP API, transforming the annotation pipeline from manual frame-by-frame labeling to verification-only — reducing annotation time by ~80–90%',
+            'Trained and fine-tuned YOLO11n models on the curated dataset, achieving 93.4% mAP50 with real-time inference (2.2ms/image on T4 GPU)',
+            'Designed and built an ETL data pipeline managing heterogeneous multi-sensor data (video, LiDAR, radar, ultrasonic, thermal, GPS) through MinIO object storage, DuckDB, and PostgreSQL',
+            'Developed an interactive Streamlit dashboard for sensor data quality analysis and visualization',
+            'Contributed to the BikeDetect project (€200K, funded by German Federal Ministry mFUND), including real-traffic field tests in Osnabrück'        
+        ],
+        technologies: ['Python', 'YOLO11n', 'Label Studio', 'Roboflow', 'Computer Vision', 'Deep Learning', 'MinIO', 'PostgreSQL', 'DuckDB', 'Streamlit', 'FastAPI', 'Docker', 'NGINX', 'Git']
+    }
+];
+---
+
+<div class="space-y-6">
+
+    {experiences.length > 0 ? (
+        experiences.map((exp, index) =>
+
+            <div class="border border-gray-700 rounded-lg p-5 bg-black">
+
+                <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
+
+                    <div>
+
+                        <h3 class="text-lg font-semibold text-white">
+                            {exp.role}
+                        </h3>
+
+                        <p class="text-primary text-sm">
+                            {exp.company}
+                        </p>
+
+                    </div>
+
+                    <div class="text-right mt-1 sm:mt-0">
+
+                        <p class="text-xs text-gray-400">
+                            {exp.period}
+                        </p>
+
+                        <p class="text-xs text-gray-500">
+                            {exp.location}
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <ul class="space-y-1.5 mb-3">
+
+                    {exp.highlights.map(point =>
+                        <li class="text-sm text-gray-400 flex items-start gap-2">
+
+                            <span class="text-primary mt-1.5 shrink-0">
+                                <svg fill="currentColor" height="6" width="6" viewBox="0 0 6 6">
+                                    <circle cx="3" cy="3" r="3"/>
+                                </svg>
+                            </span>
+
+                            <span>{point}</span>
+
+                        </li>
+                    )}
+
+                </ul>
+
+                <div class="flex flex-wrap gap-1.5">
+
+                    {exp.technologies.map(tech =>
+                        <span class="text-xs px-2 py-0.5 rounded border border-gray-600 text-gray-300 bg-gray-900">
+                            {tech}
+                        </span>
+                    )}
+
+                </div>
+
+            </div>
+
+        )
+    ) : (
+        <div class="flex flex-col items-center justify-center py-16 text-gray-500">
+
+            <svg fill="none" height="48" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="48" xmlns="http://www.w3.org/2000/svg">
+                <rect height="16" rx="2" ry="2" width="20" x="2" y="3"></rect>
+                <line x1="8" x2="16" y1="21" y2="21"></line>
+                <line x1="12" x2="12" y1="17" y2="21"></line>
+            </svg>
+
+            <p class="mt-4 text-sm">// No experience entries yet</p>
+
+            <p class="text-xs mt-1 text-gray-600">Add your roles to <span class="text-primary">src/components/ContentExperience.astro</span></p>
+
+        </div>
+    )}
+
+</div>

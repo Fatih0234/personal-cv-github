@@ -8,61 +8,78 @@ const code = `interface Developer {
 };
 
 interface TechStack {
+    agentAI: string[];
     devOps: string[];
     backend: string[];
-   frontend: string[];
+    frontend: string[];
+    dataEngineer: string[];
 };
 
-type ContactType = 'github' | 'twitter' | 'linkedIn' | 'xing' | 'email';
+type ContactType = 'github' | 'youtube' | 'linkedIn' | 'email';
 
 const techStack: TechStack = {
-    devOps: [
-        'GitLab',
-        'GitHub',
-        'Cloudflare',
-        'Docker'
+    agentAI: [
+        'Pi Coding Agent SDK',
+        'OpenCode',
+        'Codex',
+        'Flue',
+        'agent-browser',
+        'Pydantic AI'
     ],
-    frontend: [
-        'Angular',
-        'JavaScript',
-        'TypeScript',
-        'TailwindCSS',
-        'PrimeNG',
-        'Astro',
-        'Ionic',
-        'Stencil',
-        'Capacitor',
-        'SCSS',
-        'Markdown',
-        'WordPress'
+    devOps: [
+        'Docker',
+        'Docker Compose',
+        'GitHub Actions',
+        'Cloudflare',
+        'MinIO',
+        'LocalStack'
     ],
     backend: [
-        'Supabase',
+        'FastAPI',
         'Node.js',
-        'Bun',
-        'Deno',
         'PostgreSQL',
-        'MySQL',
-        'S3 Storage',
-        'Resend'
+        'DuckDB',
+        'SQLAlchemy',
+        'Alembic',
+        'Airflow',
+        'Go'
+    ],
+    frontend: [
+        'TypeScript',
+        'Astro',
+        'TailwindCSS',
+        'React'
+    ],
+    dataEngineer: [
+        'Python',
+        'DuckDB',
+        'Parquet',
+        'Apache Airflow',
+        'dlt',
+        'Metabase',
+        'Grafana',
+        'MinIO / S3'
     ]
 };
 
 // Developer profile
 const me: Developer = {
-    name: 'Dejan Vi.',
+    name: 'Fatih Karahan',
     skills: [
+        ...techStack.agentAI,
         ...techStack.devOps,
         ...techStack.backend,
-        ...techStack.frontend
+        ...techStack.frontend,
+        ...techStack.dataEngineer
     ],
     interests: [
+        'AI Agents & Orchestration',
+        'Coding Agent Infrastructure',
         'Open Source',
-        'Security',
-        'Privacy',
-        'Performance',
-        'Self-Hosting',
-        'Networking'
+        'Browser Automation',
+        'Developer Tooling',
+        'Data Engineering',
+        'Technical Content Creation'
     ]
 };
 
@@ -70,15 +87,13 @@ const me: Developer = {
 const contact = (type: ContactType): string => {
     switch (type) {
         case 'github':
-            return 'https://github.com/devidevio';
-        case 'twitter':
-            return 'https://x.com/devidev_io';
+            return 'https://github.com/Fatih0234';
+        case 'youtube':
+            return 'https://youtube.com/@StrataAcademy';
         case 'linkedIn':
-            return 'https://www.linkedin.com/in/dejan-vi';
-        case 'xing':
-            return 'https://www.xing.com/profile/Dejan_Vintonjiv';
+            return 'https://www.linkedin.com/in/fatih-karahan-717931193/';
         case 'email':
-            return 'hi@devidev.io';
+            return 'sekanti02@gmail.com';
         default:
             return 'Send fax.';
     }

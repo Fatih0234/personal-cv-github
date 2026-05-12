@@ -1,33 +1,49 @@
 ---
+interface Link {
+    url: string;
+    label: string;
+};
+
 interface Project {
     name: string;
     description: string;
-    link: {
-        url?: string;
-        target?: string;
-        title?: string;
-        buttonLabel?: string;
-    };
+    links: Link[];
 };
 
 const projects: Project[] = [{
-    name: 'Papersend.io',
-    description: 'Papersend is the free alternative to DocSend for secure document sharing, tracking, and Data Rooms. Customize branding, control access, and protect your documents.',
-    link: {
-        url: 'https://papersend.io/',
-    }
+    name: 'Maestro',
+    description: 'A minimal orchestrator for AI coding agents. Polls a local board, creates git-worktree workspaces, dispatches agents through a plan-execute-verify pipeline, and monitors progress via a Bubble Tea TUI. Built with Go and the Charm stack.',
+    links: [{
+        url: 'https://github.com/Fatih0234/maestro',
+        label: 'View on GitHub'
+    }, {
+        url: 'https://youtu.be/joew29H2dY8',
+        label: 'Watch Demo'
+    }]
 }, {
-    name: 'Qivi.io',
-    description: 'Qivi is an all-in-one application designed to streamline business operations, enhance productivity, and maximize success. Data security is a priority.',
-    link: {
-        url: 'https://qivi.io/'
-    }
+    name: 'StudIP Browser Agent',
+    description: 'A local browser agent for Stud.IP — natural-language notice board management and degree programme assistance. Uses Flue for agent orchestration and agent-browser for browser control. Features saved auth state, typed tools, and structured Valibot outputs.',
+    links: [{
+        url: 'https://github.com/Fatih0234/StudIP-Browser-Agent',
+        label: 'View on GitHub'
+    }, {
+        url: 'https://youtu.be/-wzXnauY2f0',
+        label: 'Watch Demo'
+    }]
 }, {
-    name: 'TECHPOINT.de',
-    description: 'TECHPOINT is a local IT service provider based in the Starnberg district and the Fünfseenland region, specializing in delivering reliable and modern IT solutions.',
-    link: {
-        url: 'https://techpoint.de/'
-    }
+    name: 'CHM — Core Inventory & Run Health',
+    description: 'A monitoring backend for data engineering teams to track client pipelines, ingest run events idempotently, and provide dashboard-ready operational health views. Built with FastAPI, SQLAlchemy, PostgreSQL, and Grafana.',
+    links: [{
+        url: 'https://github.com/Fatih0234/CHM',
+        label: 'View on GitHub'
+    }]
+}, {
+    name: 'GitPulse',
+    description: 'A GitHub issue backlog analytics pipeline answering whether the open issue backlog is growing or shrinking. Bronze → Silver → Gold data architecture using DuckDB, Parquet, MinIO, Apache Airflow 3.0, and Metabase.',
+    links: [{
+        url: 'https://github.com/Fatih0234/01-github-backlog-issues',
+        label: 'View on GitHub'
+    }]
 }];
 ---
 
@@ -50,22 +66,24 @@ const projects: Project[] = [{
                 </p>
 
                 {
-                    project.link?.url ?
-                        <a
-                            href={project.link.url}
-                            title={project.link.title || project.name}
-                            target={project.link.target || '_blank'}
-                            class="
-                                w-full px-4 py-2.5 mt-4 text-center
-
-                                border border-gray-600 rounded-lg
-
-                                hover:text-primary
-                                hover:border-primary
-                            ">
-                            {project.link.buttonLabel || 'Open Project Website'}
-                        </a>
-                    : null
+                    project.links.length > 0 ? (
+                        <div class="flex flex-wrap gap-2 w-full mt-4">
+                            {project.links.map(link =>
+                                <a
+                                    href={link.url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="
+                                        flex-1 px-4 py-2.5 text-center text-sm
+                                        border border-gray-600 rounded-lg
+                                        hover:text-primary hover:border-primary
+                                        transition-colors duration-150
+                                    ">
+                                    {link.label}
+                                </a>
+                            )}
+                        </div>
+                    ) : null
                 }
 
             </div>
