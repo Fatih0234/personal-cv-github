@@ -16,7 +16,7 @@ const experiences: Experience[] = [
         location: 'Oldenburg, Germany',
         highlights: [
             'Co-authored a peer-reviewed paper for Springer on AI-supported cyclist detection using YOLO11n — gained end-to-end experience in academic research and scientific publishing',
-            'Self-initiated the curation of a custom 5,000+ image dataset on Roboflow — introducing a novel three-class cyclist split (back, front, side) to address model blind spots on side-view detections, an insight missing from existing benchmarks',
+            'Self-initiated the curation of a custom 5,000+ image dataset on <a href="https://app.roboflow.com/myworkspace-bmrq2/cyclists_database-g6ls7/models" class="underline text-primary hover:opacity-80" target="_blank" rel="noopener noreferrer">Roboflow</a> — introducing a novel three-class cyclist split (back, front, side) to address model blind spots on side-view detections, an insight missing from existing benchmarks',
             'Integrated a pre-trained YOLO model as an ML backend into Label Studio via HTTP API, transforming the annotation pipeline from manual frame-by-frame labeling to verification-only — reducing annotation time by ~80–90%',
             'Trained and fine-tuned YOLO11n models on the curated dataset, achieving 93.4% mAP50 with real-time inference (2.2ms/image on T4 GPU)',
             'Designed and built an ETL data pipeline managing heterogeneous multi-sensor data (video, LiDAR, radar, ultrasonic, thermal, GPS) through MinIO object storage, DuckDB, and PostgreSQL',
@@ -74,7 +74,7 @@ const experiences: Experience[] = [
                                 </svg>
                             </span>
 
-                            <span>{point}</span>
+                            <span set:html={point}></span>
 
                         </li>
                     )}
