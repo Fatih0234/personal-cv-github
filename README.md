@@ -60,7 +60,7 @@ Edit the **Frontmatter** variables in these files:
 
 ### Logo & OpenGraph Image
 - Update these files:
-  - `/public/img/logo.svg` (your logo)
+  - `/public/img/logo.png` (your logo / favicon)
   - `/public/img/meta.png` (your OpenGraph image)
 
 Need a free OpenGraph image?
